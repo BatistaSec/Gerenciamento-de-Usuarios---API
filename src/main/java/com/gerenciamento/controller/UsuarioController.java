@@ -1,19 +1,23 @@
 package com.gerenciamento.controller;
 
+import com.gerenciamento.JWT.JwtService;
 import com.gerenciamento.entity.Usuario;
 import com.gerenciamento.service.UsuarioService;
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/usuarios")
 public class UsuarioController {
     private final UsuarioService service;
+    private final JwtService jwtService;
 
-    public UsuarioController(UsuarioService service){
+    public UsuarioController(UsuarioService service, JwtService jwtService){
         this.service = service;
+        this.jwtService = jwtService;
     }
 
     @GetMapping
@@ -27,8 +31,11 @@ public class UsuarioController {
     }
 
     @PostMapping
-    public Usuario criar(@RequestBody @Valid Usuario usuario){
-        return service.criar(usuario);
+    public Map<String,String> criarUsuario(@RequestBody Usuario usuario){
+
+        String token =
+                jwtService.generateToken(usuario.getEmail());
+        return Map.of("token",token);
     }
 
     @PutMapping("/{id}")
