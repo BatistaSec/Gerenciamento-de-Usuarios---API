@@ -91,7 +91,6 @@ API REST desenvolvida para gerenciamento de usuários, permitindo operações co
 ## 🎯 Melhorias futuras
 * 🔐 Autenticação com JWT
 * 📄 Documentação com Swagger
-* 📦 Uso de DTO
 * 🐳 Docker
 * ☁️ Deploy em cloud
 
