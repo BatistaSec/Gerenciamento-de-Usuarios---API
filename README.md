@@ -10,15 +10,19 @@ API REST desenvolvida para gerenciamento de usuários, permitindo operações co
 * Spring Data JPA
 * MySQL
 * Maven
+* Spring Security
+* JWT (JSON Web Token)
 
 ---
 
 ## ⚙️ Funcionalidades
-✅ Cadastro de usuários
-✅ Listagem de usuários
-✅ Busca por ID
-✅ Atualização de dados
-✅ Remoção de usuários
+* ✅ Cadastro de usuários
+* ✅ Listagem de usuários
+* ✅ Busca por ID
+* ✅ Atualização de dados
+* ✅ Remoção de usuários
+* ✅ Autenticação com JWT
+* ✅ Proteção de rotas com Bearer Token
 
 ---
 
@@ -27,6 +31,21 @@ API REST desenvolvida para gerenciamento de usuários, permitindo operações co
 * Tratamento global de exceções com @RestControllerAdvice
 * Retorno de mensagens de erro padronizadas
 
+---
+## 🔒 Segurança e autenticação
+
+### A API utiliza autenticação stateless com JWT (JSON Web Token).
+
+#### Após o cadastro/login, um token JWT é gerado e deve ser enviado nas requisições protegidas.
+
+     > Exemplo de header:
+     Authorization: Bearer SEU_TOKEN
+     > Rotas públicas
+     POST /usuarios
+     > Rotas protegidas
+     GET /usuarios
+     PUT /usuarios/{id}
+     DELETE /usuarios/{id}
 ---
 
 ## 🛢️ Banco de dados
@@ -42,6 +61,8 @@ API REST desenvolvida para gerenciamento de usuários, permitindo operações co
     ├── repository 
     ├── entity 
     ├── exception
+    ├── JWT
+    
 
 ---
 
@@ -85,14 +106,24 @@ API REST desenvolvida para gerenciamento de usuários, permitindo operações co
 ### Exemplo de criação de usuário (POST)
     POST /usuarios
 #### JSON
-    {   "nome": "João",   "email": "joao@email.com",   "senha": "123456" } 
+    {   
+        "nome": "João",   
+        "email": "joao@email.com",   
+        "senha": "123456" 
+    } 
+
+### Resposta
+    {
+          "token": "eyJhbGciOiJIUzI1NiJ9..."
+    }
 
 ---
 ## 🎯 Melhorias futuras
-* 🔐 Autenticação com JWT
 * 📄 Documentação com Swagger
 * 🐳 Docker
 * ☁️ Deploy em cloud
+* ✅ Testes automatizados
+* 🔑 Refresh Token
 
 ---
 
