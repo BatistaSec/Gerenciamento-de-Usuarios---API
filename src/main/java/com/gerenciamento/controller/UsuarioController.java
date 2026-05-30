@@ -3,12 +3,16 @@ package com.gerenciamento.controller;
 import com.gerenciamento.JWT.JwtService;
 import com.gerenciamento.entity.Usuario;
 import com.gerenciamento.service.UsuarioService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
 
+@SecurityRequirement(name="Bearer Authentication")
 @RestController
 @RequestMapping("/usuarios")
 public class UsuarioController {
@@ -30,6 +34,7 @@ public class UsuarioController {
         return service.buscarPorId(id);
     }
 
+    @Operation(summary = "Realiza login e gera JWT")
     @PostMapping
     public Map<String,String> criarUsuario(@RequestBody Usuario usuario){
 
