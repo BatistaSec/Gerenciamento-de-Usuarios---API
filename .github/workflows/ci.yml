@@ -22,3 +22,6 @@ jobs:
 
       - name: Rodar os testes
         run: mvn test
+
+      - name: Build Docker image
+        run: docker build -t usuarios-api .
