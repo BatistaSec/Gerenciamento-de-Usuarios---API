@@ -203,6 +203,13 @@ POST /usuarios
   "token": "eyJhbGciOiJIUzI1NiJ9..."
 }
 ```
+--- 
+### 🧪 Testes automatizados
+
+* ✅ Testes unitários do Service com Mockito
+* ✅ Testes do Controller com MockMvc
+* ✅ Testes do JwtService
+* ✅ CI com GitHub Actions (testes rodam a cada push)
 
 ---
 
@@ -211,7 +218,6 @@ POST /usuarios
 * 🐳 Docker
 * ☁️ Deploy em Cloud
 * 🔑 Refresh Token
-* ✅ Testes automatizados
 * 📊 Monitoramento com Spring Boot Actuator
 * 📝 Centralização de logs
 
