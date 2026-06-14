@@ -172,6 +172,9 @@ Pelo IntelliJ IDEA ou via terminal:
 ./mvnw spring-boot:run
 ```
 
+### 5. Rodar os testes
+    ./mvnw test
+
 ---
 
 ## 🧪 Testando a API
